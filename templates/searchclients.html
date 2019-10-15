@@ -1,0 +1,11 @@
+<!doctype html>
+<title>Search Clients</title>
+<form method="POST" action="/clients/find">
+    Name: <input type="text" name="fname" required><br>
+    <input type="submit" value="Submit">
+   </form>
+<ul>
+  {% for c in clients %}
+    <li>{{ c.id|string + ' ' + c.name }}</li>
+  {% endfor %}
+  </ul>
