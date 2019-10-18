@@ -1,0 +1,10 @@
+{% if client %}
+    <div>
+        <h3>Nome: {{client.name}}</h3>
+    </div>
+
+    <form method="POST" action="/clients/update/form/">
+        Atualizar nome: <input type="text" name="novoNome" required><br>
+        <input type="submit" value="Atualizar">
+       </form>
+{% endif %}

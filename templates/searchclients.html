@@ -6,6 +6,9 @@
    </form>
 <ul>
   {% for c in clients %}
-    <li>{{ c.id|string + ' ' + c.name }}</li>
+    {% if c.persist %}
+      <li>{{ c.id|string + ' ' + c.name + ' - CPF: ' + c.cpf + ' Address: ' + c.address}}</li>
+      <br>
+    {% endif %}
   {% endfor %}
   </ul>

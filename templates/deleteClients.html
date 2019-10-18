@@ -13,7 +13,7 @@
         <ul>
         {% for c in clients %}
             {% if c.persist  %}
-                <li>{{ c.id|string + ' ' + c.name }}</li>
+                <li>{{ c.name + ' - id: ' + c.id|string}}</li>
             {% endif %}
         {% endfor %}
         </ul>
