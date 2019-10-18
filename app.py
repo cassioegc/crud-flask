@@ -32,10 +32,11 @@ def clients():
 def add_client():
     if request.method == 'POST':
         fname = request.form["fname"]
+        cpf = request.form["cpf"]
+        address = request.form["address"]
         clients = get_clients()
         nid = len(clients)+1
-        clients.append({'id': nid, 'name': fname, 'persist': True})
-        print(fname)
+        clients.append({'id': nid, 'name': fname, 'cpf' : cpf, 'address' : address , 'persist': True})
         save_clients(clients)
         return render_template("clients.html", clients=clients)
     elif request.method == 'GET':
@@ -69,9 +70,24 @@ def delete_client():
 def getClient(id):
     clients = get_clients()
     for client in clients:
-        if(client.id == id):
+        if(client["id"] == id):
             return client
     return None
+
+@app.route('/clients/update/', methods=['POST', 'GET'])
+def update_client():
+    if request.method == 'GET':
+        return render_template("updateClient.html", client = {})
+    if request.method == 'POST':
+        id = int(request.form["id"])
+        client = getClient(id)
+        return render_template("updateClientForm.html", client=client), 404
+
+@app.route('/clients/update/form/', methods=['POST', 'GET'])
+def update_client_form():
+    print()
+    #return render_template('')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
