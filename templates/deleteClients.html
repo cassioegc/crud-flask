@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Delete Client</title>
+    </head>
+    <body>
+        <h1>Delete Client</h1>
+        <form method="POST" action="/clients/delete/">
+            ID Cliente: <input type="text" name="id"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+
+        <ul>
+        {% for c in clients %}
+            {% if c.persist  %}
+                <li>{{ c.id|string + ' ' + c.name }}</li>
+            {% endif %}
+        {% endfor %}
+        </ul>
+    </body>
+
+</html>

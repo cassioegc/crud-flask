@@ -23,7 +23,7 @@ def get_clients():
 def hello_world():
     return render_template('hello.html')
 
-@app.route('/clients')
+@app.route('/clients/')
 def clients():
     clients = get_clients()
     return render_template("clients.html", clients=clients)
@@ -34,7 +34,7 @@ def add_client():
         fname = request.form["fname"]
         clients = get_clients()
         nid = len(clients)+1
-        clients.append({'id': nid, 'name': fname})
+        clients.append({'id': nid, 'name': fname, 'persist': True})
         print(fname)
         save_clients(clients)
         return render_template("clients.html", clients=clients)
@@ -51,6 +51,27 @@ def clients_find():
         return render_template("searchclients.html", clients=filtered)
     return render_template("searchclients.html", clients=clients)
 
+@app.route('/clients/delete/', methods=['POST', 'GET'])
+def delete_client():
+    if request.method == 'GET':
+        clients = load_json('clients.json')
+        return render_template('deleteClients.html', clients=clients)
+    elif request.method == 'POST':
+        id = request.form["id"]
+        id = int(id)
+        clients = get_clients()
+        for c in clients:
+            if(c["id"] == id):
+                c["persist"] = False
+        save_clients(clients)
+        return render_template("clients.html", clients=clients)
+
+def getClient(id):
+    clients = get_clients()
+    for client in clients:
+        if(client.id == id):
+            return client
+    return None
 
 if __name__ == "__main__":
     app.run(debug=True)

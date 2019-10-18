@@ -2,8 +2,12 @@
 <title>Clients</title>
 <ul>
   {% for c in clients %}
-    <li>{{ c.id|string + ' ' + c.name }}</li>
+    {% if c.persist %}
+      <li>{{ c.id|string + ' ' + c.name }}</li>
+    {% endif %}
   {% endfor %}
   </ul>
   
   <button><a href="/clients/add">Adicionar</a></button>
+
+  <button><a href="/clients/delete">Remover</a></button>
