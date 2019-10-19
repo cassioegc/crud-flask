@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700,800,900&display=swap");
+
+.colors {
+  color: #cdc730;
+  color: #54c6c6;
+  color: #1f5b70;
+  color: #c7cbca;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  font-family: "Montserrat";
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+  transition: 0.3s;
+}
+
+.header {
+  padding: 40px;
+  border-radius: 5px;
+  background: #c7cbca;
+  user-select: none;
+  animation-name: header_background;
+  animation-duration: 1s;
+  animation-fill-mode: backwards;
+  transition: 0.5s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Montserrat";
+  margin: 0px;
+  transition: 0.3s;
+}
+
+h1.title {
+  color: #fff;
+  text-shadow: 0 2px 3px #0000001a;
+  animation-name: title;
+  animation-duration: 1s;
+  animation-fill-mode: backwards;
+}
+
+h5.subtitle {
+  font-weight: 100;
+  text-transform: lowercase;
+  animation-name: subtitle;
+  animation-duration: 1s;
+  animation-delay: 0.3s;
+  animation-fill-mode: backwards;
+}
+
+@keyframes title {
+  0% {
+    transform: scale(25);
+    color: #cdc730;
+    text-shadow: unset;
+  }
+  90% {
+    transform: scale(1.5);
+    color: #cdc730;
+    text-shadow: unset;
+  }
+  100% {
+    transform: scale(1);
+    color: inherit;
+    text-shadow: inherit;
+  }
+}
+
+@keyframes subtitle {
+  0% {
+    transform: translateX(-100%);
+    color: transparent;
+  }
+  100% {
+    color: inherit;
+    transform: translateX(0%);
+  }
+}
+
+@keyframes header_background {
+  0%,
+  90% {
+    background: transparent;
+  }
+  100% {
+    background: #c7cbca;
+  }
+}
