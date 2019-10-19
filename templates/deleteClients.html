@@ -1,22 +1,52 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Delete Client</title>
-    </head>
-    <body>
-        <h1>Delete Client</h1>
-        <form method="POST" action="/clients/delete/">
-            ID Cliente: <input type="text" name="id"><br><br>
-            <input type="submit" value="Submit">
-        </form>
 
-        <ul>
-        {% for c in clients %}
-            {% if c.persist  %}
-                <li>{{ c.name + ' - id: ' + c.id|string}}</li>
-            {% endif %}
-        {% endfor %}
-        </ul>
-    </body>
+<head>
+	<title>Deletar cliente</title>
+	<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/delete_clients.css') }}">
+</head>
+
+<body>
+	<div class="title">
+		<h1>
+			Deletar
+			<span>
+				cliente
+			</span>
+		</h1>
+	</div>
+	<div class="data">
+		<div class="form">
+			<form method="POST" action="/clients/delete/">
+				<div class="field">
+					<label for="id">ID Cliente</label>
+					<input type="text" name="id">
+				</div>
+				<div class="action">
+					<input type="submit" value="Submit">
+				</div>
+			</form>
+		</div>
+		<div class="list">
+			<ul>
+				{% for c in clients %}
+				{% if c.persist  %}
+				<li class="content">
+					<div>
+						<p class="label_id">ID</p>
+						<span>
+							{{ c.id }}
+						</span>
+					</div>
+					<p>
+						{{ c.name }}
+					</p>
+				</li>
+				{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
+</body>
 
 </html>

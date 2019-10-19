@@ -131,7 +131,7 @@ p {
 button {
   outline: none;
   padding: 10px 20px;
-  border-radius: 5px;
+  border-radius: 25px;
   border: unset;
   font-family: "Montserrat";
   font-weight: bold;
