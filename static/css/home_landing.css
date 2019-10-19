@@ -12,6 +12,9 @@ body {
   padding: 0px;
   overflow: hidden;
   font-family: "Montserrat";
+  animation-name: body;
+  animation-duration: 1s;
+  animation-fill-mode: backwards;
 }
 
 header {
@@ -32,6 +35,11 @@ header {
   animation-duration: 1s;
   animation-fill-mode: backwards;
   transition: 0.5s;
+  background-image: url(https://hacktoberfest.digitalocean.com/assets/logo-hf19-full-10f3c000cea930c76acc1dedc516ea7118b95353220869a3051848e45ff1d656.svg);
+  background-size: 120px 120px;
+  background-repeat: no-repeat;
+  background-position-y: 60px;
+  background-position-x: 160px;
 }
 
 h1,
@@ -65,27 +73,34 @@ h5.subtitle {
 @keyframes title {
   0% {
     transform: scale(25);
-    color: #cdc730;
+    color: #fff;
     text-shadow: unset;
+    filter: blur(25px);
   }
   90% {
     transform: scale(1.5);
-    color: #cdc730;
+    color: #fff;
     text-shadow: unset;
   }
   100% {
     transform: scale(1);
     color: inherit;
     text-shadow: inherit;
+    filter: blur(0px);
   }
 }
 
 @keyframes subtitle {
   0% {
+    opacity: 0;
     transform: translateX(-100%);
-    color: transparent;
+    color: #fff;
+  }
+  50% {
+    color: #fff;
   }
   100% {
+    opacity: 1;
     color: inherit;
     transform: translateX(0%);
   }
@@ -95,8 +110,28 @@ h5.subtitle {
   0%,
   90% {
     background: transparent;
+    background-image: unset;
+    background-size: 120px 120px;
+    background-repeat: no-repeat;
+    background-position-y: 60px;
+    background-position-x: 160px;
   }
   100% {
     background: #c7cbca;
+    background-image: url(https://hacktoberfest.digitalocean.com/assets/logo-hf19-full-10f3c000cea930c76acc1dedc516ea7118b95353220869a3051848e45ff1d656.svg);
+    background-size: 120px 120px;
+    background-repeat: no-repeat;
+    background-position-y: 60px;
+    background-position-x: 160px;
+  }
+}
+
+@keyframes body {
+  0%,
+  90% {
+    background: linear-gradient(45deg, #00ff6f, #00b4e5);
+  }
+  100% {
+    background: linear-gradient(45deg, #fff, #fff);
   }
 }
