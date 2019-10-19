@@ -38,10 +38,11 @@ h1,
 h2,
 h3,
 h4,
-h5 {
+h5,
+p,
+span {
   font-family: "Montserrat";
   margin: 0px;
-  transition: 0.3s;
 }
 
 h1.title {

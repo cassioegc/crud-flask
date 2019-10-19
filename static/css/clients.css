@@ -1,0 +1,173 @@
+@import url("./home_landing.css");
+
+.clients {
+  min-height: 100vh;
+  min-width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.list {
+  padding: 25px;
+}
+
+ul {
+  padding: 0px;
+  margin: 0px;
+  list-style-type: none;
+  min-width: 450px;
+}
+
+li {
+  padding: 2px 5px;
+  padding-left: 0px;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  border-radius: 35px;
+  animation-name: content;
+  animation-fill-mode: backwards;
+  animation-duration: 1s;
+  transition: 0.4s;
+}
+
+li:nth-child(0) {
+  animation-delay: 0.1s;
+}
+
+li:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+li:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+li:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+li:nth-child(4) {
+  animation-delay: 0.5s;
+}
+
+li:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+li:nth-child(6) {
+  animation-delay: 0.7s;
+}
+
+li:nth-child(7) {
+  animation-delay: 0.8s;
+}
+
+li:nth-child(8) {
+  animation-delay: 0.9s;
+}
+
+li:nth-child(9) {
+  animation-delay: 1s;
+}
+
+li:hover {
+  cursor: default;
+  background: gainsboro;
+  margin-left: 10px;
+}
+
+span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  float: left;
+  width: 30px;
+  height: 30px;
+  padding: 1px;
+  border-radius: 25px;
+  user-select: none;
+  background: #cdc730;
+  font-weight: bold;
+  color: #fff;
+}
+
+p {
+  margin: 0px;
+  padding: 2px 8px;
+  text-transform: capitalize;
+}
+
+button {
+  outline: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: unset;
+  font-family: "Montserrat";
+  font-weight: bold;
+  margin: 3px;
+  text-transform: lowercase;
+  background: #00b4e5;
+  animation-name: btn;
+  animation-fill-mode: backwards;
+  animation-duration: 1s;
+  transition: 0.3s;
+}
+
+button.add:hover {
+  background: #4caf50;
+}
+
+button.delete:hover {
+  background: #f44336;
+}
+
+button:nth-child(1) {
+  animation-delay: 0.5s;
+}
+
+button:nth-child(2) {
+  animation-delay: 750ms;
+}
+
+button:nth-child(3) {
+  animation-delay: 1s;
+}
+
+button:nth-child(4) {
+  animation-delay: 1.25s;
+}
+
+button:hover {
+  cursor: pointer;
+  background: gray;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+}
+
+@keyframes content {
+  0% {
+    transform: translateX(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+
+@keyframes btn {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
