@@ -1,14 +1,46 @@
 <!doctype html>
-<title>Search Clients</title>
-<form method="POST" action="/clients/find">
-    Name: <input type="text" name="fname"><br>
-    <input type="submit" value="Submit">
-   </form>
-<ul>
-  {% for c in clients %}
-    {% if c.persist %}
-      <li>{{ c.id|string + ' ' + c.name + ' - CPF: ' + c.cpf + ' Address: ' + c.address}}</li>
-      <br>
-    {% endif %}
-  {% endfor %}
-  </ul>
+<head>
+  <title>Search Clients</title>
+  <style>
+    td {
+      text-align:  center;
+    }
+    table, th, td {
+  border: 1px solid black;
+}
+  </style>
+</head>
+
+<body>
+  
+  <form method="POST" action="/clients/find">
+      Name: <input type="text" name="fname"><br>
+      <input type="submit" value="Submit">
+    </form>
+
+    <br><br>
+    <h2 style="text-align: left;">Descrição</h2>
+    <table>
+      <colgroup>
+        <col span="3" style="background-color:gray">
+        <col style="background-color:gray">
+      </colgroup>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>CPF</th>
+        <th>Address</th>
+      </tr>
+
+      {% for c in clients %}
+        {% if c.persist %}
+          <tr>
+            <td>{{c.id}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.cpf}}</td>
+            <td>{{c.address}}</td>
+          </tr>
+        {% endif %}
+      {% endfor %}
+    </table>
+</body>
