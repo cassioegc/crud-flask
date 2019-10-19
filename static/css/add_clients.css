@@ -95,7 +95,7 @@ input[type="submit"] {
   margin-top: 8px;
   padding: 10px 20px;
   border: unset;
-  border-radius: 5px;
+  border-radius: 25px;
   background: #00b4e5;
   font-family: "Montserrat";
   text-transform: lowercase;
