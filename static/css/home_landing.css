@@ -32,6 +32,11 @@ header {
   animation-duration: 1s;
   animation-fill-mode: backwards;
   transition: 0.5s;
+  background-image: url(https://hacktoberfest.digitalocean.com/assets/logo-hf19-full-10f3c000cea930c76acc1dedc516ea7118b95353220869a3051848e45ff1d656.svg);
+    background-size: 120px 120px;
+    background-repeat: no-repeat;
+    background-position-y: 60px;
+    background-position-x: 160px;
 }
 
 h1,
@@ -67,6 +72,7 @@ h5.subtitle {
     transform: scale(25);
     color: #cdc730;
     text-shadow: unset;
+    filter: blur(25px);
   }
   90% {
     transform: scale(1.5);
@@ -77,6 +83,7 @@ h5.subtitle {
     transform: scale(1);
     color: inherit;
     text-shadow: inherit;
+    filter: blur(0px);
   }
 }
 
@@ -95,8 +102,18 @@ h5.subtitle {
   0%,
   90% {
     background: transparent;
+    background-image: unset;
+    background-size: 120px 120px;
+    background-repeat: no-repeat;
+    background-position-y: 60px;
+    background-position-x: 160px;
   }
   100% {
     background: #c7cbca;
+    background-image: url(https://hacktoberfest.digitalocean.com/assets/logo-hf19-full-10f3c000cea930c76acc1dedc516ea7118b95353220869a3051848e45ff1d656.svg);
+    background-size: 120px 120px;
+    background-repeat: no-repeat;
+    background-position-y: 60px;
+    background-position-x: 160px;
   }
 }
