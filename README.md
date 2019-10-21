@@ -1,6 +1,6 @@
 # Bem vindo ao Crud Flask!
 
-**Crud Flask** é um repositório aberto para entusiastas de desenvolvimento web com Python e o Framework Flask. Se chegou até de paraquedas e não tem conhecimento de Flask você pode aprender o básico [aqui]([http://pythonclub.com.br/what-the-flask-pt-1-introducao-ao-desenvolvimento-web-com-python.html](http://pythonclub.com.br/what-the-flask-pt-1-introducao-ao-desenvolvimento-web-com-python.html)).
+**Crud Flask** é um repositório aberto para entusiastas de desenvolvimento web com Python e o Framework Flask. Se chegou até de paraquedas e não tem conhecimento de Flask você pode aprender o básico [aqui]([http://pythonclub.com.br/what-the-flask-pt-1-introducao-ao-desenvolvimento-web-com-python.html).
 
 
 # Como estamos indo...
