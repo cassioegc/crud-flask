@@ -1,24 +1,24 @@
 <head>
-  <title>Atualizar</title>
-  <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/update_client.css') }}">
+	<title>Atualizar</title>
+	<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/update_client.css') }}">
 </head>
 
 <body>
-    <div class="title">
-        <h1>
-            Atualizar
-            <span>cliente</span>
-        </h1>
-    </div>
-    <div class="form">
-        <form method="POST" action="/clients/update/">
-            <div class="field">
+	<div class="title">
+		<h1>
+			Atualizar
+			<span>cliente</span>
+		</h1>
+	</div>
+	<div class="form">
+		<form method="POST" action="/clients/update/">
+			<div class="field">
 				<label for="fname">ID Cliente</label>
-                <input type="text" name="id" required>
+				<input type="text" name="id" required>
 			</div>
-            <div class="action">
-                <input type="submit" value="Submit">
+				<div class="action">
+					<input type="submit" value="Submit">
             </div>
-        </form>
-    </div>
+		</form>
+	</div>
 </body>
