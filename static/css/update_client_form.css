@@ -1,0 +1,58 @@
+@import url("./home_landing.css");
+@import url("./animations.css");
+@import url("./add_clients.css");
+
+.form {
+    min-width: 430px;
+}
+
+.name-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    background: #e8e8e8;
+    padding: 5px 0px;
+    padding-left: 15px;
+    border-radius: 25px;
+    font-weight: 100;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: fade;
+    animation-fill-mode: backwards;
+    animation-duration: 0.5s;
+    animation-delay: 1s;
+}
+
+span.name {
+    background: #fff;
+    border-radius: 25px;
+    padding: 5px 15px;
+    box-shadow: -4px 0px 5px -5px rgba(0, 0, 0, 0.4);
+    font-weight: 100;
+    text-transform: capitalize;
+    color: #cdc730;
+    margin-left: 10px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: ribon;
+    animation-fill-mode: backwards;
+    animation-duration: 1s;
+    animation-delay: 0.7s;
+}
+
+label {
+    flex: none;
+}
+
+input[type="text"] {
+    width: 100%;
+}

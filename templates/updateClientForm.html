@@ -1,10 +1,32 @@
-{% if client %}
-    <div>
-        <h3>Nome: {{client.name}}</h3>
-    </div>
+<head>
+  <title>Atualizar</title>
+  <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/update_client_form.css') }}">
+</head>
 
-    <form method="POST" action="/clients/update/form/">
-        Atualizar nome: <input type="text" name="novoNome" required><br>
-        <input type="submit" value="Atualizar">
-       </form>
-{% endif %}
+<body>
+    <div class="title">
+        <h1>
+            Atualizar
+            <span>cliente</span>
+        </h1>
+    </div>
+    {% if client %}
+    <div class="form">
+        <div class="name-content">
+            <h3>
+                Nome
+                <span class="name">{{ client.name }}</span>
+            </h3>
+        </div>
+        <form method="POST" action="/clients/update/form/">
+            <div class="field">
+				<label for="fname">Atualizar nome</label>
+                <input type="text" name="novoNome" required>
+			</div>
+            <div class="action">
+                <input type="submit" value="Atualizar">
+            </div>
+        </form>
+    </div>
+    {% endif %}
+</body>
