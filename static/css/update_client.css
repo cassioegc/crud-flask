@@ -1,0 +1,26 @@
+@import url("./home_landing.css");
+@import url("./animations.css");
+@import url("./add_clients.css");
+
+body {
+    animation: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+label {
+  padding: 10px;
+  width: 100%;
+}
+
+input[type="text"] {
+  width: auto;
+}
+
+.action {
+    display: flex;
+    justify-content: flex-end;
+    padding: 0px 10px;
+}
