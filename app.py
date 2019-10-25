@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+from flask import flash, redirect
 import json
 import os
 
@@ -21,6 +22,20 @@ def save_clients(data):
 def get_clients():
     return load_json('clients.json')
 
+def getClient(id):
+    clients = get_clients()
+    for client in clients:
+        if(client["id"] == id):
+            return client
+    return None
+
+def find_client(id, clients):
+    for client in clients:
+        if(client["id"] == id):
+            return client
+    return None
+
+
 @app.route('/')
 def hello_world():
     return render_template('hello.html')
@@ -40,6 +55,7 @@ def add_client():
         nid = len(clients)+1
         clients.append({'id': nid, 'name': fname, 'cpf' : cpf, 'address' : address , 'persist': True})
         save_clients(clients)
+        flash('Usuário adicionado com sucesso', 'success')
         return render_template("clients.html", clients=clients)
     elif request.method == 'GET':
         clients = load_json('clients.json')
@@ -69,13 +85,6 @@ def delete_client():
         save_clients(clients)
         return render_template("clients.html", clients=clients)
 
-def getClient(id):
-    clients = get_clients()
-    for client in clients:
-        if(client["id"] == id):
-            return client
-    return None
-
 @app.route('/clients/update/', methods=['POST', 'GET'])
 def update_client():
     if request.method == 'GET':
@@ -83,12 +92,29 @@ def update_client():
     if request.method == 'POST':
         id = int(request.form["id"])
         client = getClient(id)
+
         return render_template("updateClientForm.html", client=client), 404
 
 @app.route('/clients/update/form/', methods=['POST', 'GET'])
 def update_client_form():
-    print()
-    #return render_template('')
+    if request.method == 'POST':
+        id = int(request.form["id"])
+        novoNome = request.form["novoNome"]
+        novoEndereco = request.form["novoEndereco"]
+        novoCpf  = request.form["novoCpf"]
+        print(novoNome)
+        print(novoEndereco)
+        print(novoCpf)
+
+        clients = get_clients()
+        client = find_client(id, clients)
+        client["name"] = novoNome or client["name"]
+        client["cpf"] = novoCpf or client["cpf"]
+        client["address"] = novoEndereco or client["address"]
+        save_clients(clients)
+        print(client)
+        
+    return redirect('/clients/')
 
 
 if __name__ == "__main__":

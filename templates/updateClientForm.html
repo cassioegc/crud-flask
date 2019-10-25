@@ -4,13 +4,13 @@
 </head>
 
 <body>
+	{% if client %}
 	<div class="title">
 		<h1>
 			Atualizar
 			<span>cliente</span>
 		</h1>
 	</div>
-	{% if client %}
 	<div class="form">
 		<div class="name-content">
 			<h3>
@@ -20,13 +20,32 @@
 		</div>
 		<form method="POST" action="/clients/update/form/">
 			<div class="field">
-				<label for="fname">Atualizar nome</label>
+				<input type="text" name="id" value="{{client.id}}">
+				<label for="novoNome">Atualizar nome</label>
 				<input type="text" name="novoNome" required>
+			</div>
+			<div class="field">
+				<label for="novoCpf">Atualizar CPF</label>
+				<input type="text" name="novoCpf">
+			</div>
+			<div class="field">
+				<label for="novoEndereco">Atualizar endereço</label>
+				<input type="text" name="novoEndereco">
 			</div>
 				<div class="action">
 					<input type="submit" value="Atualizar">
             </div>
 		</form>
 	</div>
+	{% else %}
+	<div class="title">
+			<h1>
+				<div><img src="/static/images/sad.png" width="60px"></div>
+				Nenhum cliente encontrado
+					<form action="/clients">
+						<input type="submit" value="Voltar">
+					  </form>
+			</h1>
+		</div>
 	{% endif %}
 </body>
