@@ -104,17 +104,16 @@ def products():
 @app.route('/products/add', methods=['POST', 'GET'])
 def add_products():
     if request.method == 'POST':
-        fname = request.form["fname"]
-        cpf = request.form["cpf"]
-        address = request.form["address"]
-        clients = get_clients()
-        nid = len(clients)+1
-        clients.append({'id': nid, 'name': fname, 'cpf' : cpf, 'address' : address , 'persist': True})
-        save_clients(clients)
-        return render_template("clients.html", clients=clients)
+        name = request.form["name"]
+        amount = request.form["amount"]
+        products = get_products()
+        nid = len(products)+1
+        products.append({'id': nid, 'name': name, "amount": amount, 'persist': True})
+        save_products(products)
+        return render_template("products.html", products=products)
     elif request.method == 'GET':
-        clients = load_json('clients.json')
-        return render_template("addclients.html", clients=clients)
+        products = load_json('products.json')
+        return render_template("addproducts.html", products=products)
 
 
 if __name__ == "__main__":
