@@ -112,7 +112,6 @@ def update_client_form():
         client["cpf"] = novoCpf or client["cpf"]
         client["address"] = novoEndereco or client["address"]
         save_clients(clients)
-        print(client)
         
     return redirect('/clients/')
 
