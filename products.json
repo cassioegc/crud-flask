@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Livro Python para Iniciantes",
+        "amount": 15,
+        "persist": true
+    },
+    {
+        "id": 2,
+        "name": "PC Gamer + Monitor Americanas",
+        "amount": 5,
+        "persist": true
+    }
+]

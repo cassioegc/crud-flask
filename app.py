@@ -90,6 +90,32 @@ def update_client_form():
     print()
     #return render_template('')
 
+def save_products(data):
+    save_json(data, 'products.json')
+ 
+def get_products():
+    return load_json('products.json')
+
+@app.route('/products/')
+def products():
+    products = get_products()
+    return render_template("products.html", products=products)
+    
+@app.route('/products/add', methods=['POST', 'GET'])
+def add_products():
+    if request.method == 'POST':
+        fname = request.form["fname"]
+        cpf = request.form["cpf"]
+        address = request.form["address"]
+        clients = get_clients()
+        nid = len(clients)+1
+        clients.append({'id': nid, 'name': fname, 'cpf' : cpf, 'address' : address , 'persist': True})
+        save_clients(clients)
+        return render_template("clients.html", clients=clients)
+    elif request.method == 'GET':
+        clients = load_json('clients.json')
+        return render_template("addclients.html", clients=clients)
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
