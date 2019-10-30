@@ -99,18 +99,18 @@ def update_client():
 def update_client_form():
     if request.method == 'POST':
         id = int(request.form["id"])
-        novoNome = request.form["novoNome"]
-        novoEndereco = request.form["novoEndereco"]
-        novoCpf  = request.form["novoCpf"]
-        print(novoNome)
-        print(novoEndereco)
-        print(novoCpf)
+        novo_nome = request.form["novoNome"]
+        novo_endereco = request.form["novoEndereco"]
+        novo_cpf  = request.form["novoCpf"]
+        print(novo_nome)
+        print(novo_endereco)
+        print(novo_cpf)
 
         clients = get_clients()
         client = find_client(id, clients)
-        client["name"] = novoNome or client["name"]
-        client["cpf"] = novoCpf or client["cpf"]
-        client["address"] = novoEndereco or client["address"]
+        client["name"] = novo_nome or client["name"]
+        client["cpf"] = novo_cpf or client["cpf"]
+        client["address"] = novo_endereco or client["address"]
         save_clients(clients)
         
     return redirect('/clients/')
