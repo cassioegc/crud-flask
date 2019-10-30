@@ -1,0 +1,47 @@
+<!doctype html>
+
+<head>
+  <title>Clientes</title>
+  <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/clients.css') }}">
+</head>
+
+<body>
+  <div class="title">
+    <h1>Produtos</h1>
+  </div>
+  <div class="clients">
+    <div class="list">
+      <ul>
+        {% for p in products %}
+        {% if p.persist %}
+        <li class="content">
+          <span>
+            {{ p.id }}
+          </span>
+          <p>
+            {{ p.name }}
+          </p>
+          <p>
+              {{ p.amount }}
+          </p>
+        </li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    <div class="actions">
+      <button class="add">
+        <a href="/products/add">Adicionar</a>
+      </button>
+      <button class="delete">
+        <a href="/products/delete">Remover</a>
+      </button>
+      <button>
+        <a href="/products/update">Atualizar</a>
+      </button>
+      <button>
+        <a href="/products/find">Pesquisar</a>
+      </button>
+    </div>
+  </div>
+</body>

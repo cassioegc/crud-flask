@@ -115,6 +115,31 @@ def update_client_form():
         
     return redirect('/clients/')
 
+def save_products(data):
+    save_json(data, 'products.json')
+ 
+def get_products():
+    return load_json('products.json')
+
+@app.route('/products/')
+def products():
+    products = get_products()
+    return render_template("products.html", products=products)
+    
+@app.route('/products/add', methods=['POST', 'GET'])
+def add_products():
+    if request.method == 'POST':
+        name = request.form["name"]
+        amount = request.form["amount"]
+        products = get_products()
+        nid = len(products)+1
+        products.append({'id': nid, 'name': name, "amount": amount, 'persist': True})
+        save_products(products)
+        return render_template("products.html", products=products)
+    elif request.method == 'GET':
+        products = load_json('products.json')
+        return render_template("addproducts.html", products=products)
+
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))

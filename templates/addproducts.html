@@ -1,0 +1,29 @@
+<head>
+	<title>Adicionar produto</title>
+	<link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/add_clients.css') }}">
+</head>
+
+<body>
+	<div class="title">
+		<h1>Adicionar
+			<span>produto</span>
+		</h1>
+	</div>
+	<div class="form">
+		<form method="POST" action="/products/add">
+			<div>
+				<div class="field">
+					<label for="name">Nome</label>
+					<input type="text" name="name" required>
+				</div>
+				<div class="field">
+					<label for="amount">Quantidade</label>
+					<input type="text" name="amount" pattern="[0-9]">
+				</div>
+			</div>
+			<div class="action">
+				<input type="submit" value="Submit">
+			</div>
+		</form>
+	</div>
+</body>
