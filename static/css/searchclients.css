@@ -1,10 +1,63 @@
-@import url("./add_clients.css");
+@import url("./delete_clients.css");
+
+body {
+  overflow: unset;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: unset;
+}
+
+.form {
+  min-width: 430px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: ghostwhite;
+  border-radius: 25px;
+}
+
+.col1 {
+  background-color: gray;
+}
+
+.col2 {
+  background-color: rgb(161, 159, 159);
+}
+
+h2 {
+  text-align: left;
+}
 
 td {
   text-align: center;
 }
+
+tbody {
+  background-color: ghostwhite;
+}
+
+th {
+  color: #cdc730;
+}
+
 table,
 th,
 td {
-  border: 1px solid black;
+  border: 0px solid black;
+}
+
+td {
+  width: 50px;
+  height: 35px;
+}
+
+th {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
