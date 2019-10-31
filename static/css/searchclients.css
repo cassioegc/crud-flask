@@ -1,5 +1,35 @@
 @import url("./add_clients.css");
 
+body {
+  overflow: unset;
+  overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  animation: unset;
+}
+
+.form {
+  min-width: 430px;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.col1 {
+  background-color: gray;
+}
+
+.col2 {
+  background-color: rgb(161, 159, 159);
+}
+
+h2 {
+  text-align: left;
+}
+
 td {
   text-align: center;
 }

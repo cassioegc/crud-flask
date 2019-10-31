@@ -1,43 +1,55 @@
-<!doctype html>
+<!DOCTYPE html>
 <head>
   <title>Pesquisar clientes</title>
-  <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/searchclients.css') }}">
+  <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/searchclients.css')
+
+
+
+
+
+  }}">
 </head>
 
 <body>
   <div class="title">
-		<h1>Pesquisar
-			<span>clientes</span>
-		</h1>
-	</div>
-  <form method="POST" action="/clients/find">
-      Name: <input type="text" name="fname"><br>
-      <input type="submit" value="Submit">
+    <h1>
+      Pesquisar
+      <span>clientes</span>
+    </h1>
+  </div>
+  <div class="form">
+    <form method="POST" action="/clients/find">
+      <div class="field">
+        <label>Nome </label>
+        <input type="text" name="fname" /><br />
+      </div>
+      <div class="action">
+        <input type="submit" value="Submit" />
+      </div>
     </form>
+  </div>
 
-    <br><br>
-    <h2 style="text-align: left;">Descrição</h2>
-    <table>
-      <colgroup>
-        <col span="3" style="background-color:gray">
-        <col style="background-color:rgb(161, 159, 159)">
-      </colgroup>
-      <tr>
-        <th>ID</th>
-        <th>Name</th>
-        <th>CPF</th>
-        <th>Address</th>
-      </tr>
+  <br /><br />
+  <h2>Descrição</h2>
+  <table>
+    <colgroup>
+      <col class="col1" span="3" />
+      <col class="col2" />
+    </colgroup>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>CPF</th>
+      <th>Address</th>
+    </tr>
 
-      {% for c in clients %}
-        {% if c.persist %}
-          <tr>
-            <td>{{c.id}}</td>
-            <td>{{c.name}}</td>
-            <td>{{c.cpf}}</td>
-            <td>{{c.address}}</td>
-          </tr>
-        {% endif %}
-      {% endfor %}
-    </table>
+    {% for c in clients %} {% if c.persist %}
+    <tr>
+      <td>{{ c.id }}</td>
+      <td>{{ c.name }}</td>
+      <td>{{ c.cpf }}</td>
+      <td>{{ c.address }}</td>
+    </tr>
+    {% endif %} {% endfor %}
+  </table>
 </body>
