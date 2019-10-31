@@ -1,13 +1,7 @@
 <!DOCTYPE html>
 <head>
   <title>Pesquisar clientes</title>
-  <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/searchclients.css')
-
-
-
-
-
-  }}">
+  <link rel="stylesheet" type=text/css href="{{ url_for('static', filename='css/searchclients.css')}}">
 </head>
 
 <body>
@@ -17,7 +11,7 @@
       <span>clientes</span>
     </h1>
   </div>
-  <div class="form">
+  <div>
     <form method="POST" action="/clients/find">
       <div class="field">
         <label>Nome </label>
@@ -30,8 +24,8 @@
   </div>
 
   <br /><br />
-  <h2>Descrição</h2>
-  <table>
+  <!-- <h2>Descrição</h2> -->
+  <table class="form">
     <colgroup>
       <col class="col1" span="3" />
       <col class="col2" />

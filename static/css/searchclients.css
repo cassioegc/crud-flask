@@ -1,4 +1,4 @@
-@import url("./add_clients.css");
+@import url("./delete_clients.css");
 
 body {
   overflow: unset;
@@ -13,9 +13,11 @@ body {
 
 .form {
   min-width: 430px;
-  /* display: flex;
+  display: flex;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
+  background: ghostwhite;
+  border-radius: 25px;
 }
 
 .col1 {
@@ -33,8 +35,29 @@ h2 {
 td {
   text-align: center;
 }
+
+tbody {
+  background-color: ghostwhite;
+}
+
+th {
+  color: #cdc730;
+}
+
 table,
 th,
 td {
-  border: 1px solid black;
+  border: 0px solid black;
+}
+
+td {
+  width: 50px;
+  height: 35px;
+}
+
+th {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 15px;
+  padding-bottom: 15px;
 }
