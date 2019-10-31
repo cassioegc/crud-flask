@@ -1,0 +1,10 @@
+@import url("./add_clients.css");
+
+td {
+  text-align: center;
+}
+table,
+th,
+td {
+  border: 1px solid black;
+}
