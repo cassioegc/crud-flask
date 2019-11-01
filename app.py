@@ -7,20 +7,25 @@ import os
 
 app = Flask(__name__)
 
+
 def load_json(fname):
     with open(fname, 'r') as f:
         data = json.load(f)
     return data
 
+
 def save_json(data, fname):
     with open(fname, 'w') as f:
         json.dump(data, f)
-        
+
+
 def save_clients(data):
     save_json(data, 'clients.json')
- 
+
+
 def get_clients():
     return load_json('clients.json')
+
 
 def getClient(id):
     clients = get_clients()
@@ -28,6 +33,7 @@ def getClient(id):
         if(client["id"] == id):
             return client
     return None
+
 
 def find_client(id, clients):
     for client in clients:
@@ -40,26 +46,30 @@ def find_client(id, clients):
 def hello_world():
     return render_template('hello.html')
 
+
 @app.route('/clients/')
 def clients():
     clients = get_clients()
     return render_template("clients.html", clients=clients)
-    
+
+
 @app.route('/clients/add', methods=['POST', 'GET'])
 def add_client():
     if request.method == 'POST':
         fname = request.form["fname"]
         cpf = request.form["cpf"]
         address = request.form["address"]
+        phone = request.form["phone"]
         clients = get_clients()
         nid = len(clients)+1
-        clients.append({'id': nid, 'name': fname, 'cpf' : cpf, 'address' : address , 'persist': True})
+        clients.append({'id': nid, 'name': fname, 'cpf': cpf, 'address': address, 'phone': phone, 'persist': True})
         save_clients(clients)
         flash('Usuário adicionado com sucesso', 'success')
         return render_template("clients.html", clients=clients)
     elif request.method == 'GET':
         clients = load_json('clients.json')
         return render_template("addclients.html", clients=clients)
+
 
 @app.route('/clients/find', methods=['POST', 'GET'])
 def clients_find():
@@ -69,6 +79,7 @@ def clients_find():
         filtered = [c for c in clients if fname in c["name"]]
         return render_template("searchclients.html", clients=filtered)
     return render_template("searchclients.html", clients=clients)
+
 
 @app.route('/clients/delete/', methods=['POST', 'GET'])
 def delete_client():
@@ -85,15 +96,17 @@ def delete_client():
         save_clients(clients)
         return render_template("clients.html", clients=clients)
 
+
 @app.route('/clients/update/', methods=['POST', 'GET'])
 def update_client():
     if request.method == 'GET':
-        return render_template("updateClient.html", client = {})
+        return render_template("updateClient.html", client={})
     if request.method == 'POST':
         id = int(request.form["id"])
         client = getClient(id)
 
         return render_template("updateClientForm.html", client=client), 404
+
 
 @app.route('/clients/update/form/', methods=['POST', 'GET'])
 def update_client_form():
@@ -101,7 +114,7 @@ def update_client_form():
         id = int(request.form["id"])
         novo_nome = request.form["novoNome"]
         novo_endereco = request.form["novoEndereco"]
-        novo_cpf  = request.form["novoCpf"]
+        novo_cpf = request.form["novoCpf"]
         print(novo_nome)
         print(novo_endereco)
         print(novo_cpf)
@@ -112,20 +125,24 @@ def update_client_form():
         client["cpf"] = novo_cpf or client["cpf"]
         client["address"] = novo_endereco or client["address"]
         save_clients(clients)
-        
+
     return redirect('/clients/')
+
 
 def save_products(data):
     save_json(data, 'products.json')
- 
+
+
 def get_products():
     return load_json('products.json')
+
 
 @app.route('/products/')
 def products():
     products = get_products()
     return render_template("products.html", products=products)
-    
+
+
 @app.route('/products/add', methods=['POST', 'GET'])
 def add_products():
     if request.method == 'POST':
@@ -133,7 +150,8 @@ def add_products():
         amount = request.form["amount"]
         products = get_products()
         nid = len(products)+1
-        products.append({'id': nid, 'name': name, "amount": amount, 'persist': True})
+        products.append(
+            {'id': nid, 'name': name, "amount": amount, 'persist': True})
         save_products(products)
         return render_template("products.html", products=products)
     elif request.method == 'GET':
