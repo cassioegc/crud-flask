@@ -11,6 +11,10 @@ body {
   animation: unset;
 }
 
+button.add:hover {
+  background: #4caf50;
+}
+
 .form {
   min-width: 430px;
   display: flex;
